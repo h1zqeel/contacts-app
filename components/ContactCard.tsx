@@ -17,13 +17,13 @@ export function ContactCard(props: IContactCardProps) {
         <div className="bg-[#121212] pb-5 rounded-3xl border-solid border-2 border-[#141414] text-white mx-1 h-full">
             <div className="flex flex-row justify-center">
                 <div className="flex flex-col text-center">
-					<div>
-						<img
-							className="w-64 h-64 rounded-full object-cover"
-							src={`https://api.dicebear.com/8.x/lorelei/svg?seed=${props.name}`}
-							alt="Avatar"
-						/>
-					</div>
+                    <div>
+                        <img
+                            className="w-64 h-64 rounded-full object-cover"
+                            src={`https://api.dicebear.com/8.x/lorelei/svg?seed=${props.name}`}
+                            alt="Avatar"
+                        />
+                    </div>
                     <div className="flex flex-col">
                         <p className="text-2xl font-semibold">{props.name}</p>
                         <p className="text-l text-gray-300">

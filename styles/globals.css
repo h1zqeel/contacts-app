@@ -3,46 +3,45 @@
 @tailwind utilities;
 
 body {
-  background-color: black;
+    background-color: black;
 }
 
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 8px;  /* Adjust the width of the scrollbar */
+    width: 8px; /* Adjust the width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;  /* Color of the scrollbar track matching the background */
+    background: #000; /* Color of the scrollbar track matching the background */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #555;  /* Light black color for the scrollbar thumb */
-  border-radius: 10px;  /* Round corners of the scrollbar thumb */
-  border: 2px solid #000;  /* Space around the thumb, same color as background */
+    background-color: #555; /* Light black color for the scrollbar thumb */
+    border-radius: 10px; /* Round corners of the scrollbar thumb */
+    border: 2px solid #000; /* Space around the thumb, same color as background */
 }
 
 /* For Firefox */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: #555 #000;  /* Thumb color and track color */
+    scrollbar-width: thin;
+    scrollbar-color: #555 #000; /* Thumb color and track color */
 }
 
 /* For IE and Edge */
 body {
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 ::-ms-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 ::-ms-scrollbar-track {
-  background: #000;
+    background: #000;
 }
 
 ::-ms-scrollbar-thumb {
-  background-color: #555;
-  border-radius: 10px;
-  border: 2px solid #000;
+    background-color: #555;
+    border-radius: 10px;
+    border: 2px solid #000;
 }
-

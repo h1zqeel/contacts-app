@@ -9,7 +9,7 @@ export default function ContactInfomation({
 }: IContactInfomationProps) {
     return (
         <div className="bg-[#121212] p-5 rounded-3xl border-solid border-2 border-[#141414] text-white mx-1 shadow-lg h-full">
-            <div className="flex md:flex-row flex-col justify-start md:space-x-24">
+            <div className="flex md:flex-row flex-col justify-start md:space-x-24 ">
                 <div>
                     <p className="text-lg text-gray-400 mb-1">
                         @{contact.username}
