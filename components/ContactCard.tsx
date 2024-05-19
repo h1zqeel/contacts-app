@@ -30,7 +30,7 @@ export function ContactCard(props: IContactCardProps) {
                         <p className="text-l text-gray-300">
                             {props.companyName}
                         </p>
-                        <div className="flex space-x-4 p-3 shadow-md">
+                        <div className="flex space-x-4 p-3">
                             <div className="flex items-center justify-center p-4 bg-gray-700 rounded-full hover:bg-gray-600 transition-colors duration-300">
                                 <FontAwesomeIcon
                                     icon={faPhone}
