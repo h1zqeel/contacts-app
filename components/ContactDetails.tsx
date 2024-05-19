@@ -21,7 +21,7 @@ export function ContactDetails({ contact }: IAppProps) {
                     companyName={contact.company.name}
                 />
             </div>
-            <div className="h-fit">
+            <div className="h-fit flex-grow">
                 <ContactInfomation contact={contact} />
             </div>
         </div>

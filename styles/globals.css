@@ -8,26 +8,27 @@ body {
 
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-    width: 8px; /* Adjust the width of the scrollbar */
+    display: none;
 }
 
 ::-webkit-scrollbar-track {
-    background: #000; /* Color of the scrollbar track matching the background */
+    display: none;
+    background: #000;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #555; /* Light black color for the scrollbar thumb */
-    border-radius: 10px; /* Round corners of the scrollbar thumb */
-    border: 2px solid #000; /* Space around the thumb, same color as background */
+    display: none;
+
+    background-color: #555;
+    border-radius: 10px;
+    border: 2px solid #000;
 }
 
-/* For Firefox */
 * {
     scrollbar-width: thin;
-    scrollbar-color: #555 #000; /* Thumb color and track color */
+    scrollbar-color: #555 #000;
 }
 
-/* For IE and Edge */
 body {
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }
