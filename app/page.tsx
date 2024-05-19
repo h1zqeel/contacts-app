@@ -1,10 +1,8 @@
 "use client";
 
 import { ContactDetails } from "@/components/ContactDetails";
-import { ContactList } from "@/components/ContactsList";
 import { Context } from "@/context";
-import type { Metadata } from "next";
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 
 export default function Page() {
     const { selectedContact, navOpen } = useContext(Context);

@@ -11,7 +11,7 @@ export function ContactDetails({ contact }: IAppProps) {
     const { navOpen } = React.useContext(Context);
     return (
         <div
-            className={`w-screen md:w-3/4 h-4/4 md:flex flex-col space-y-1 overflow-y-scroll ${
+            className={`w-screen md:w-3/4 h-4/4 md:flex flex-col space-y-1 overflow-y-scroll rounded-3xl ${
                 navOpen ? "xs:hidden" : ""
             }`}
         >

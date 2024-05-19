@@ -7,7 +7,15 @@ import { ContactList } from "@/components/ContactsList";
 import { useEffect, useState } from "react";
 import { Context } from "@/context";
 import { Nav } from "@/components/Nav";
+import { Poppins } from "next/font/google";
+
 config.autoAddCss = false;
+
+const poppins = Poppins({
+    subsets: ["latin"],
+    display: "swap",
+    weight: ["400", "700"],
+});
 
 export default function RootLayout({
     children,
@@ -18,7 +26,7 @@ export default function RootLayout({
     const [selectedContact, setSelectedContact] = useState<IContact | null>(
         null
     );
-    const [navOpen, setNavOpen] = useState<boolean>(true);
+    const [navOpen, setNavOpen] = useState(true);
     const getContact = async () => {
         const response = await fetch(
             "https://jsonplaceholder.typicode.com/users"
@@ -27,19 +35,17 @@ export default function RootLayout({
         setContacts(data);
     };
 
-    const setNav = (tr: boolean) => {
-        setNavOpen(tr);
-    };
-
     const toggleNav = () => {
         if (!navOpen) {
             setSelectedContact(null);
         }
         setNavOpen(!navOpen);
     };
+
     useEffect(() => {
         getContact();
     }, []);
+
     return (
         <html lang="en">
             <head>
@@ -50,27 +56,27 @@ export default function RootLayout({
                 />
                 <title>Contacts App</title>
             </head>
-            <body>
-                <div className="flex flex-col h-[100dvh] space-y-1 shadow">
-                    <div className="h-[8%]">
-                        <Nav setNavOpen={toggleNav} />
-                    </div>
-                    <div className="flex flex-row h-[92%]">
-                        <Context.Provider
-                            value={{
-                                selectedContact,
-                                setSelectedContact,
-                                contacts,
-                                navOpen,
-                                setNavOpen: setNav,
-                            }}
-                        >
+            <body className={poppins.className}>
+                <Context.Provider
+                    value={{
+                        selectedContact,
+                        setSelectedContact,
+                        contacts,
+                        navOpen,
+                        setNavOpen,
+                    }}
+                >
+                    <div className="flex flex-col h-[100dvh] space-y-1 shadow">
+                        <div className="h-[7%]">
+                            <Nav toggleNav={toggleNav} />
+                        </div>
+                        <div className="flex flex-row h-[92%]">
                             {/* Side Bar */}
                             <ContactList contacts={contacts} />
                             <>{children}</>
-                        </Context.Provider>
+                        </div>
                     </div>
-                </div>
+                </Context.Provider>
             </body>
         </html>
     );
