@@ -1,12 +1,15 @@
 import * as React from "react";
 import { ListItem } from "./ListItem";
 import { Context } from "@/context";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export interface IAppProps {
     contacts: IContact[];
+    loading: boolean;
 }
 
-export function ContactList({ contacts }: IAppProps) {
+export function ContactList({ contacts, loading }: IAppProps) {
     const { selectedContact, setSelectedContact, setNavOpen, navOpen } =
         React.useContext(Context);
     return (
@@ -15,28 +18,36 @@ export function ContactList({ contacts }: IAppProps) {
                 navOpen && !selectedContact ? "" : "hidden"
             }`}
         >
-            {contacts.map((contact) => {
-                return (
-                    <div
-                        key={contact.id}
-                        className="flex flex-row justify-center"
-                        onClick={() => {
-                            setSelectedContact(contact);
-                            setNavOpen(false);
-                        }}
-                    >
-                        <ListItem
-                            name={contact.name}
-                            companyName={contact.company.name}
-                            selected={
-                                selectedContact
-                                    ? contact.id === selectedContact.id
-                                    : false
-                            }
-                        />
-                    </div>
-                );
-            })}
+            {!loading &&
+                contacts.map((contact) => {
+                    return (
+                        <div
+                            key={contact.id}
+                            className="flex flex-row justify-center"
+                            onClick={() => {
+                                setSelectedContact(contact);
+                                setNavOpen(false);
+                            }}
+                        >
+                            <ListItem
+                                name={contact.name}
+                                companyName={contact.company.name}
+                                selected={
+                                    selectedContact
+                                        ? contact.id === selectedContact.id
+                                        : false
+                                }
+                            />
+                        </div>
+                    );
+                })}
+            {loading && (
+				<SkeletonTheme baseColor="#202020" highlightColor="#444">
+					<p className="m-3">
+						<Skeleton height={5} width={'100%'} count={10} />
+					</p>
+				</SkeletonTheme>
+            )}
         </div>
     );
 }

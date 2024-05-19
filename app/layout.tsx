@@ -27,12 +27,16 @@ export default function RootLayout({
         null
     );
     const [navOpen, setNavOpen] = useState(true);
+	const [loading, setLoading] = useState(true);
+
     const getContact = async () => {
+		setLoading(true);
         const response = await fetch(
             "https://jsonplaceholder.typicode.com/users"
         );
         const data = await response.json();
         setContacts(data);
+		setLoading(false);
     };
 
     const toggleNav = () => {
@@ -72,7 +76,7 @@ export default function RootLayout({
                         </div>
                         <div className="flex flex-row h-[92%]">
                             {/* Side Bar */}
-                            <ContactList contacts={contacts} />
+                            <ContactList contacts={contacts} loading={loading} />
                             <>{children}</>
                         </div>
                     </div>
